@@ -5,7 +5,6 @@ import sound
        
 reader = MFRC522(spi_id=0,sck=6,miso=4,mosi=7,cs=5,rst=22)
 
- 
 print("Bring RFID TAG Closer...")
 print("")
  
