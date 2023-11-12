@@ -16,3 +16,6 @@ def play_audio():
         pass
 
     print("Done playing!")
+
+if __name__ == "__main__":
+    play_audio()
