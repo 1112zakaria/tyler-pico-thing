@@ -6,12 +6,13 @@ import board
 import audiomp3
 import audiopwmio
 
-audio = audiopwmio.PWMAudioOut(board.GP0)
+def play_audio():
+    audio = audiopwmio.PWMAudioOut(board.GP0)
 
-decoder = audiomp3.MP3Decoder(open("slow.mp3", "rb"))
+    decoder = audiomp3.MP3Decoder(open("slow.mp3", "rb"))
 
-audio.play(decoder)
-while audio.playing:
-    pass
+    audio.play(decoder)
+    while audio.playing:
+        pass
 
-print("Done playing!")
+    print("Done playing!")
