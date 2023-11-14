@@ -18,3 +18,8 @@ problem: RBG_control.py doesn't do what is wanted. currently does lights but ins
 
 extension:
 - play a random sound based on a library of sounds given
+
+new problem:
+- sound.py uses circuitpython
+- mfrc522.py uses micropython
+- conflict in python types
