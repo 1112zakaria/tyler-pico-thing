@@ -1,7 +1,6 @@
 from machine import Pin
 from mfrc522 import MFRC522
 import utime
-import sound
        
 reader = MFRC522(spi_id=0,sck=6,miso=4,mosi=7,cs=5,rst=22)
 
@@ -19,7 +18,6 @@ while True:
             
             if card == 111583217:
                 print("Card ID: "+ str(card)+" PASS: Green Light Activated")
-                sound.play_audio()
                 
             elif card == 495638547:
                 print("Card ID: "+ str(card)+" PASS: Blue Light Activated")
