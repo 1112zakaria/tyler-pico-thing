@@ -9,20 +9,45 @@ import audiopwmio
 import random
 
 class SongWrapper():
+    """
+    Parent class of song file wrapper sub-classes.
+    Defines the methods that should be implemented in
+    subclasses. This class should not be instantiated.
+    """
+    def __init__(self, path):
+        self.path = None
+        self.decoder = None
     def get_decoder(self):
+        return None
+    def deinit(self):
         return None
 
 class MP3Wrapper(SongWrapper):
+    """
+    Wrapper for MP3 audio files.
+    """
     def __init__(self, path):
         self.path = path
+        self.decoder = None
     def get_decoder(self):
-        return audiomp3.MP3Decoder(open(self.path, "rb"))
+        self.decoder = audiomp3.MP3Decoder(self.path)
+    def deinit(self):
+        if self.decoder is not None:
+            self.decoder.deinit()
 
 class WavWrapper(SongWrapper):
+    """
+    Wrapper for WAV audio files.
+    """
     def __init__(self, path):
         self.path = path
+        self.decoder = None
     def get_decoder(self):
-        return audiocore.WaveFile(open(self.path, "rb"))
+        self.decoder = audiocore.WaveFile(self.path)
+        return self.decoder
+    def deinit(self):
+        if self.decoder is not None:
+            self.decoder.deinit()
 
 
 # Pin Configurations & Other stuff for Tyler
@@ -33,7 +58,9 @@ class WavWrapper(SongWrapper):
 speaker_pin = board.GP13
 wrapped_song_files = [
     MP3Wrapper("slow.mp3"),
-    WavWrapper("The_Boondocks_I_Want_My_Money.wav")
+    WavWrapper("The_Boondocks_I_Want_My_Money.wav"),
+    WavWrapper("He_got_money.wav"),
+    WavWrapper("broke.wav")
 ]
 # End of pin configurations
 
@@ -51,6 +78,10 @@ def play_audio():
     audio.play(decoder)
     while audio.playing:
         pass
+    
+    # call deinit method to free hardware resources for reuse
+    decoder.deinit()
+    audio.deinit()
 
     print("Done playing!")
 
