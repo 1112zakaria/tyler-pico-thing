@@ -21,6 +21,8 @@ class SongWrapper():
         return None
     def deinit(self):
         return None
+    def get_song(self):
+        return None
 
 class MP3Wrapper(SongWrapper):
     """
@@ -34,6 +36,8 @@ class MP3Wrapper(SongWrapper):
     def deinit(self):
         if self.decoder is not None:
             self.decoder.deinit()
+    def get_song(self):
+        return self.path
 
 class WavWrapper(SongWrapper):
     """
@@ -48,6 +52,8 @@ class WavWrapper(SongWrapper):
     def deinit(self):
         if self.decoder is not None:
             self.decoder.deinit()
+    def get_song(self):
+        return self.path
 
 
 # Pin Configurations & Other stuff for Tyler
@@ -75,6 +81,7 @@ def play_audio():
     random_song = pick_random_song()
     decoder = random_song.get_decoder()
 
+    print("Playing " + decoder.get_song())
     audio.play(decoder)
     while audio.playing:
         pass
