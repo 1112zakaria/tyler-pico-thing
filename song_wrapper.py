@@ -1,3 +1,5 @@
+import audiomp3
+import audiocore
 
 class SongWrapper():
     """
