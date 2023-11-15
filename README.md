@@ -26,6 +26,12 @@ new problem:
 
 Found this library mfrc522 card reader for circuitpython: https://github.com/domdfcoding/circuitpython-mfrc522
 
+Note: this library above seems to depend on adafruit-circuitpython-busdevice, which is not
+built into CircuitPython and can be installed using the following instructions:
+https://docs.circuitpython.org/projects/busdevice/en/latest/index.html#bus-device-installation
+
+but.... it might also already be built-in? I do not know. You'd have to run it to figure it out.
+
 Requirements for porting codebase to CircuitPython:
 - machine is a micropython library, therefore you need get rid of all
 references to this library
