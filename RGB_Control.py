@@ -1,19 +1,14 @@
 from cpy_mfrc522 import MFRC522
 import sound
 import board
-
-# Stuff that Tyler can modify
-RED_CARD_SONG = sound.MP3Wrapper("slow.mp3")
-BLUE_CARD_SONG = sound.WavWrapper("The_Boondocks_I_Want_My_Money.wav")
-UNKNOWN_CARD_SONG = sound.WavWrapper("broke.wav")
-# End of stuff that Tyler can modify
+import config
 
 reader = MFRC522(
-    sck=board.GP6,
-    mosi=board.GP7,
-    miso=board.GP4,
-    rst=board.GP22,
-    cs=board.GP5
+    sck=config.SCK_PIN,
+    mosi=config.MOSI_PIN,
+    miso=config.MISO_PIN,
+    rst=config.RST_PIN,
+    cs=config.CS_PIN
 )
 
 print("Bring RFID TAG Closer...")
@@ -30,13 +25,13 @@ while True:
             
             if card == 111583217:
                 print("Card ID: "+ str(card)+" PASS: Green Light Activated")
-                sound.play_audio(RED_CARD_SONG)
+                sound.play_audio(config.GREEN_CARD_SONG)
                 
             elif card == 495638547:
                 print("Card ID: "+ str(card)+" PASS: Blue Light Activated")
-                sound.play_audio(BLUE_CARD_SONG)
+                sound.play_audio(config.BLUE_CARD_SONG)
                 
             else:
                 print("Card ID: "+ str(card)+" UNKNOWN CARD! Red Light Activated")
-                sound.play_audio(UNKNOWN_CARD_SONG)
+                sound.play_audio(config.UNKNOWN_CARD_SONG)
       

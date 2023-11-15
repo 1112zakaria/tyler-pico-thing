@@ -1,12 +1,13 @@
 from cpy_mfrc522 import MFRC522
 import board
+import config
  
 reader = MFRC522(
-    sck=board.GP6,
-    mosi=board.GP7,
-    miso=board.GP4,
-    rst=board.GP22,
-    cs=board.GP5
+    sck=config.SCK_PIN,
+    mosi=config.MOSI_PIN,
+    miso=config.MISO_PIN,
+    rst=config.RST_PIN,
+    cs=config.CS_PIN
 )
  
 print("Bring TAG closer...")
