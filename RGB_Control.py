@@ -1,9 +1,8 @@
-from machine import Pin
-from mfrc522 import MFRC522
+from cpy_mfrc522 import MFRC522
 import utime
 import sound
-       
-reader = MFRC522(spi_id=0,sck=6,miso=4,mosi=7,cs=5,rst=22)
+
+reader = MFRC522(sck=6, mosi=7, miso=4, rst=22, cs=5)
 
 print("Bring RFID TAG Closer...")
 print("")
