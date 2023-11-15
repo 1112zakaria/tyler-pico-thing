@@ -36,3 +36,6 @@ Requirements for porting codebase to CircuitPython:
 - machine is a micropython library, therefore you need get rid of all
 references to this library
 - board is a circuitpython library, you can keep this.
+
+To determine which board pins to use, I used the Raspberry Pi Pico Datasheet:
+https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf

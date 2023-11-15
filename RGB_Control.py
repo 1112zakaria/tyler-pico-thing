@@ -1,7 +1,15 @@
 from cpy_mfrc522 import MFRC522
 import sound
+import board
 
-reader = MFRC522(sck=6, mosi=7, miso=4, rst=22, cs=5)
+#reader = MFRC522(sck=6, mosi=7, miso=4, rst=22, cs=5)
+reader = MFRC522(
+    sck=board.GP4,
+    mosi=board.GP5,
+    miso=board.GP2,
+    rst=board.GP17,
+    cs=board.GP3
+)
 
 print("Bring RFID TAG Closer...")
 print("")
