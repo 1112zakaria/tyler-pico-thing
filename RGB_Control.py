@@ -2,14 +2,12 @@ from cpy_mfrc522 import MFRC522
 import sound
 import board
 
-#reader = MFRC522(sck=6, mosi=7, miso=4, rst=22, cs=5)
-# reader = MFRC522(
-#     sck=board.GP4,
-#     mosi=board.GP5,
-#     miso=board.GP2,
-#     rst=board.GP17,
-#     cs=board.GP3
-# )
+# Stuff that Tyler can modify
+RED_CARD_SONG = sound.MP3Wrapper("slow.mp3")
+BLUE_CARD_SONG = sound.WavWrapper("The_Boondocks_I_Want_My_Money.wav")
+UNKNOWN_CARD_SONG = sound.WavWrapper("broke.wav")
+# End of stuff that Tyler can modify
+
 reader = MFRC522(
     sck=board.GP6,
     mosi=board.GP7,
@@ -32,11 +30,13 @@ while True:
             
             if card == 111583217:
                 print("Card ID: "+ str(card)+" PASS: Green Light Activated")
-                sound.play_audio()
+                sound.play_audio(RED_CARD_SONG)
                 
             elif card == 495638547:
                 print("Card ID: "+ str(card)+" PASS: Blue Light Activated")
+                sound.play_audio(BLUE_CARD_SONG)
                 
             else:
                 print("Card ID: "+ str(card)+" UNKNOWN CARD! Red Light Activated")
+                sound.play_audio(UNKNOWN_CARD_SONG)
       

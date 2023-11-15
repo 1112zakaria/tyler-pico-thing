@@ -75,13 +75,16 @@ def pick_random_song():
     random_idx = random.randint(0, len(wrapped_song_files) - 1)
     return wrapped_song_files[random_idx]
 
-def play_audio():
+def play_random_audio():
+    random_song = pick_random_song()
+    play_audio(random_song)
+
+def play_audio(songWrapperObj: SongWrapper):
     audio = audiopwmio.PWMAudioOut(speaker_pin)
     
-    random_song = pick_random_song()
-    decoder = random_song.get_decoder()
+    decoder = songWrapperObj.get_decoder()
 
-    print("Playing " + random_song.get_song())
+    print("Playing " + songWrapperObj.get_song())
     audio.play(decoder)
     while audio.playing:
         pass
