@@ -26,9 +26,9 @@ while True:
     reader.init()
     (stat, tag_type) = reader.request(reader.REQIDL)
     if stat == reader.OK:
-        (stat, uid) = reader.SelectTagSN()
-        if stat == reader.OK:
-            card = int.from_bytes(bytes(uid),"little",False)
+        (stat, raw_uid) = reader.anticoll()
+        if reader.select_tag(raw_uid) == reader.OK:
+            card = int.from_bytes(bytes(raw_uid),"little",False)
             
             if card == 111583217:
                 print("Card ID: "+ str(card)+" PASS: Green Light Activated")

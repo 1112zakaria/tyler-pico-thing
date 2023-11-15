@@ -25,6 +25,7 @@ new problem:
 - conflict in python types
 
 Found this library mfrc522 card reader for circuitpython: https://github.com/domdfcoding/circuitpython-mfrc522
+- Refer to the examples here to learn how to use the library: https://github.com/domdfcoding/circuitpython-mfrc522/tree/master/examples
 
 Note: this library above seems to depend on adafruit-circuitpython-busdevice, which is not
 built into CircuitPython and can be installed using the following instructions:
