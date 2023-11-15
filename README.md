@@ -23,3 +23,10 @@ new problem:
 - sound.py uses circuitpython
 - mfrc522.py uses micropython
 - conflict in python types
+
+Found this library mfrc522 card reader for circuitpython: https://github.com/domdfcoding/circuitpython-mfrc522
+
+Requirements for porting codebase to CircuitPython:
+- machine is a micropython library, therefore you need get rid of all
+references to this library
+- board is a circuitpython library, you can keep this.
