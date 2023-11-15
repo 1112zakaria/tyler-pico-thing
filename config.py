@@ -26,3 +26,6 @@ UNKNOWN_CARD_SONG = song_wrapper.WavWrapper("broke.wav")
 
 PLAY_RANDOM_ON_GREEN       = True
 PLAY_RANDOM_ON_UNKNOWN     = False
+
+# Tyler's Card UID
+TYLER_CARD_UID              = 111583217
