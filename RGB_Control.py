@@ -1,5 +1,4 @@
 from cpy_mfrc522 import MFRC522
-import utime
 import sound
 
 reader = MFRC522(sck=6, mosi=7, miso=4, rst=22, cs=5)
