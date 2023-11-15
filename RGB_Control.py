@@ -28,7 +28,7 @@ while True:
     if stat == reader.OK:
         (stat, raw_uid) = reader.anticoll()
         if reader.select_tag(raw_uid) == reader.OK:
-            card = int.from_bytes(bytes(raw_uid),"little",False)
+            card = int.from_bytes(bytes(raw_uid),"little")
             
             if card == 111583217:
                 print("Card ID: "+ str(card)+" PASS: Green Light Activated")
