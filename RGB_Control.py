@@ -25,13 +25,15 @@ while True:
             
             if card == 111583217:
                 print("Card ID: "+ str(card)+" PASS: Green Light Activated")
-                sound.play_audio(config.GREEN_CARD_SONG)
-                
-            elif card == 495638547:
-                print("Card ID: "+ str(card)+" PASS: Blue Light Activated")
-                sound.play_audio(config.BLUE_CARD_SONG)
+                if config.PLAY_RANDOM_ON_GREEN:
+                    sound.play_random_audio()
+                else:
+                    sound.play_audio(config.GREEN_CARD_SONG)
                 
             else:
                 print("Card ID: "+ str(card)+" UNKNOWN CARD! Red Light Activated")
-                sound.play_audio(config.UNKNOWN_CARD_SONG)
+                if config.PLAY_RANDOM_ON_UNKNOWN:
+                    sound.play_random_audio()
+                else:
+                    sound.play_audio(config.UNKNOWN_CARD_SONG)
       

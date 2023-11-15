@@ -24,3 +24,5 @@ GREEN_CARD_SONG = sound.MP3Wrapper("slow.mp3")
 BLUE_CARD_SONG = sound.WavWrapper("The_Boondocks_I_Want_My_Money.wav")
 UNKNOWN_CARD_SONG = sound.WavWrapper("broke.wav")
 
+PLAY_RANDOM_ON_GREEN       = True
+PLAY_RANDOM_ON_UNKNOWN     = False
