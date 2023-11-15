@@ -2,7 +2,6 @@
 CircuitPython single MP3 playback example for Raspberry Pi Pico.
 Plays a single MP3 once.
 """
-import board
 import audiomp3
 import audiocore
 import audiopwmio
@@ -82,4 +81,4 @@ def play_audio(songWrapperObj: SongWrapper):
     print("Done playing!")
 
 if __name__ == "__main__":
-    play_audio()
+    play_random_audio()

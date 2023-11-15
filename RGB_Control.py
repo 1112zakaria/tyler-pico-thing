@@ -1,6 +1,5 @@
 from cpy_mfrc522 import MFRC522
 import sound
-import board
 import config
 
 reader = MFRC522(
