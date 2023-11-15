@@ -81,7 +81,7 @@ def play_audio():
     random_song = pick_random_song()
     decoder = random_song.get_decoder()
 
-    print("Playing " + decoder.get_song())
+    print("Playing " + random_song.get_song())
     audio.play(decoder)
     while audio.playing:
         pass
